@@ -4,6 +4,20 @@ set-option -g status-interval 5
 set-option -g automatic-rename on
 set-option -g automatic-rename-format '#{b:pane_current_path}'
 
+# Increase history size
+set -g history-limit 50000
+
+# Copy Paste in Vim
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi y send-keys -X copy-selection
+bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
+
+# set clipboard on
+set-option -g set-clipboard external
+
+# reload config
+bind r source-file ~/.tmux.conf \; display-message "Tmux configuration reloaded."
+
 # COLOUR (base16)
 
 # default statusbar colors
